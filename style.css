@@ -371,3 +371,99 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+
+        /*a little modification - ai helped*/
+
+        #movie-details {
+    flex: 1;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.movie-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.poster-section {
+    flex-shrink: 0;
+}
+
+.details-section {
+    flex: 1;
+    text-align: left;
+}
+
+#title {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+#poster {
+    display: block;
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.movie-info {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+}
+
+#description {
+    color: #6c757d;
+    line-height: 1.7;
+    font-size: 16px;
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+#buy-ticket {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(255,107,53,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .movie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .details-section {
+        text-align: center;
+    }
+    
+    #title {
+        text-align: center;
+    }
+}
