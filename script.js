@@ -23,5 +23,31 @@ fetch("http://localhost:3000/films")
     });
   });
 
+// Function to display movie details
+function showMovieDetails(movie) {
+  document.getElementById("title").textContent = movie.title;
+  document.getElementById("runtime").textContent = `${movie.runtime} minutes`;
+  document.getElementById("showtime").textContent = movie.showtime;
 
+  const availableTickets = movie.capacity - movie.tickets_sold;
+  document.getElementById("tickets").textContent =
+    `Available Tickets: ${availableTickets}`;
+
+  document.getElementById("poster").src = movie.poster;
+
+  const buyBtn = document.getElementById("buy-ticket");
+  buyBtn.textContent = availableTickets > 0 ? "Buy Ticket" : "Sold Out";
+
+  // reset old event listeners (avoid multiple clicks stacking up)
+  buyBtn.replaceWith(buyBtn.cloneNode(true));
+  const newBuyBtn = document.getElementById("buy-ticket");
+
+  newBuyBtn.addEventListener("click", () => {
+    if (availableTickets > 0) {
+      alert("Ticket bought!");
+    } else {
+      newBuyBtn.textContent = "Sold Out";
+    }
+  });
+}
 
