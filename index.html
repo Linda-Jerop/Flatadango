@@ -6,31 +6,15 @@
     <title>Flatadango</title>
 </head>
 <body>
-    <h1>Moringa Movie Theatre[MMT] 🎦</h1>
+    <div class="header">
+        <h1>Moringa Movie Theatre [MMT] 🎦</h1>
+    </div>
 
-    <div id="movie-details">
-    <img id="poster" alt="Movie Poster" width="200" />
-    <h2 id="title"></h2>
-    <p id="runtime"></p>
-    <p id="showtime"></p>
-    <p id="tickets"></p>
-    <button id="buy-ticket">Buy Ticket</button>
-  </div>
-  
-<!--
-"id": "15",
-     "title": "Village Of The Giants",
-     "runtime": "98",
-     "capacity": 50,
-     "showtime": "04:45PM",
-     "tickets_sold": 33,
-     "description": "Delinquent teen-agers ingest a substance and grow thirty feet tall, then proceed to take over a small town.",
-     "poster"  
--->
-     <aside class="sidebar">
-        <div class="sidebar-header">
-  <ul id="films">
-    <li>The Giant Gila Monster</li>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Now Showing</h3>
+            <ul id="films">
+      <li>The Giant Gila Monster</li>
       <li>Manos: The Hands Of Fate</li>
       <li>Time Chasers</li>
       <li>The Touch Of Satan</li>
@@ -46,8 +30,20 @@
       <li>Danger: Diabolik</li>
       <li>Village Of The Giants</li>
   </ul>
+        </aside>
+
+    <div id="movie-details">
+    <img id="poster" alt="Movie Poster" width="200" />
+    <h2 id="title"></h2>
+    <p id="runtime"></p>
+    <p id="showtime"></p>
+    <p id="tickets"></p>
+    <button id="buy-ticket">Buy Ticket</button>
   </div>
-  </aside>
+  
+     <aside class="sidebar">
+        <div class="sidebar-header">
+
 
   <script src="script.js"></script>
 </body>
