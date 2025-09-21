@@ -24,23 +24,23 @@ fetch("http://localhost:3000/films")
   });
 
 // Function to display movie details
-function showMovieDetails(movie) {
-  document.getElementById("title").textContent = movie.title;
-  document.getElementById("runtime").textContent = `${movie.runtime} minutes`;
-  document.getElementById("showtime").textContent = movie.showtime;
+// function showMovieDetails(movie) {
+//   document.getElementById("title").textContent = movie.title;
+//   document.getElementById("runtime").textContent = `${movie.runtime} minutes`;
+//   document.getElementById("showtime").textContent = movie.showtime;
 
-  const availableTickets = movie.capacity - movie.tickets_sold;
-  document.getElementById("tickets").textContent =
-    `Available Tickets: ${availableTickets}`;
+//   const availableTickets = movie.capacity - movie.tickets_sold;
+//   document.getElementById("tickets").textContent =
+//     `Available Tickets: ${availableTickets}`;
 
-  document.getElementById("poster").src = movie.poster;
+//   document.getElementById("poster").src = movie.poster;
 
-  const buyBtn = document.getElementById("buy-ticket");
-  buyBtn.textContent = availableTickets > 0 ? "Buy Ticket" : "Sold Out";
+//   const buyBtn = document.getElementById("buy-ticket");
+//   buyBtn.textContent = availableTickets > 0 ? "Buy Ticket" : "Sold Out";
 
-  // reset old event listeners (avoid multiple clicks stacking up)
-  buyBtn.replaceWith(buyBtn.cloneNode(true));
-  const newBuyBtn = document.getElementById("buy-ticket");
+//   // reset old event listeners (avoid multiple clicks stacking up)
+//   buyBtn.replaceWith(buyBtn.cloneNode(true));
+//   const newBuyBtn = document.getElementById("buy-ticket");
 
   newBuyBtn.addEventListener("click", () => {
     if (availableTickets > 0) {
@@ -49,5 +49,46 @@ function showMovieDetails(movie) {
       newBuyBtn.textContent = "Sold Out";
     }
   });
-}
 
+//MOVIE DETAILS
+function showMovieDetails(movie) {
+  document.getElementById("title").textContent = movie.title;
+  document.getElementById("runtime").textContent = `${movie.runtime} minutes`;
+  document.getElementById("showtime").textContent = movie.showtime;
+
+  const availableTickets = movie.capacity - movie.tickets_sold;
+  document.getElementById("tickets").textContent = 
+    `Available Tickets: ${availableTickets}`;
+
+  document.getElementById("poster").src = movie.poster;
+
+  const buyBtn = document.getElementById("buy-ticket");
+  buyBtn.textContent = availableTickets > 0 ? "Buy Ticket" : "Sold Out";
+
+  // Remove old event listeners
+  buyBtn.replaceWith(buyBtn.cloneNode(true));
+  const newBuyBtn = document.getElementById("buy-ticket");
+
+  newBuyBtn.addEventListener("click", () => {
+    const currentAvailable = movie.capacity - movie.tickets_sold;
+    
+    if (currentAvailable > 0) {
+      // THIS IS THE KEY FIX - actually update the data
+      movie.tickets_sold++;
+      
+      // Updates the display immediately
+      const newAvailable = movie.capacity - movie.tickets_sold;
+      document.getElementById("tickets").textContent = 
+        `Available Tickets: ${newAvailable}`;
+      
+      // Updates button if sold out
+      if (newAvailable <= 0) {
+        newBuyBtn.textContent = "Sold Out";
+      }
+      
+      alert("Ticket bought!");
+    } else {
+      alert("Sorry, sold out!");
+    }
+  });
+}
