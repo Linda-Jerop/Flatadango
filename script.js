@@ -5,6 +5,12 @@ fetch("http://localhost:3000/films")
     // shows the first movie by default
     showMovieDetails(movies[0]);
 
+//fetch("http://localhost:3000/films")
+// .then(res => res.json())
+// .then(movies => { })
+
+//The whole point of fetching is to make work easier such that you don't have to keep typing everything
+
     // also lists all movies on the left side
     const filmsList = document.getElementById("films");
     filmsList.innerHTML = ""; // clear placeholder <li>
